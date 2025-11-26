@@ -17,6 +17,8 @@ class Berita extends Controller
     {
         // Ambil data berita dari database
         $berita = $this->model("BeritaModel")->getAll();
+
+        // View
         $this->view('back/layout/head', ['title' => 'Kelola Berita']);
         $this->view('back/layout/sidebar');
         $this->view('back/layout/navbar');
@@ -26,8 +28,6 @@ class Berita extends Controller
 
     public function tambah()
     {
-        // var_dump($_POST);
-        // die;
         if ($this->model("BeritaModel")->tambah($_POST, $_FILES) > 0) {
             redirectWithMsg(BASE_URL . "/Berita/backend", "Data berhasil ditambahkan", "success");
         } else {

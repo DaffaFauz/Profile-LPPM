@@ -29,13 +29,13 @@
         <li class="menu-header small">
             <span class="menu-header-text" data-i18n="Tentang Kami">Tentang Kami</span>
         </li>
-        <li class="menu-item">
+        <li class="menu-item <?= !empty($data['page']) && $data['page'] == 'Sejarah' ? 'active' : '' ?>">
             <a href="<?= BASE_URL ?>/Sejarah" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-file-time"></i>
                 <div data-i18n="Sejarah">Sejarah</div>
             </a>
         </li>
-        <li class="menu-item">
+        <li class="menu-item <?= !empty($data['page']) && $data['page'] == 'Visi Misi' ? 'active' : '' ?>">
             <a href="<?= BASE_URL ?>/VisiMisi" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-eye-table"></i>
                 <div data-i18n="Visi Misi">Visi Misi</div>

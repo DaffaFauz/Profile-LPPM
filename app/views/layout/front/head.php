@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="<?= ASSETS_URL ?>front/css/tiny-slider.css" />
     <link rel="stylesheet" href="<?= ASSETS_URL ?>front/css/animate.css" />
     <link rel="stylesheet" href="<?= ASSETS_URL ?>front/css/lindy-uikit.css" />
+
+    <!-- Editor -->
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/quill/typography.css" />
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/quill/katex.css" />
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/quill/editor.css" />
     <style>
         /* Lebarkan dropdown utama dan submenu */
         .dropdown-menu {
