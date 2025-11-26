@@ -1,0 +1,85 @@
+<html lang="en" class="layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr" data-skin="default"
+    data-assets-path="<?= ASSETS_URL ?>back/" data-template="vertical-menu-template" data-bs-theme="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title><?= htmlspecialchars($data['title']) ?> | ADMIN LPPM</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="<?= ASSETS_URL ?>back/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/fonts/iconify-icons.css" />
+
+    <!-- Core CSS -->
+    <!-- build:css assets/vendor/css/theme.css  -->
+
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/node-waves/node-waves.css" />
+
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/pickr/pickr-themes.css" />
+
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/css/core.css" />
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/css/demo.css" />
+
+    <!-- Vendors CSS -->
+
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- endbuild -->
+    <?php if (!empty($_REQUEST) && $_REQUEST["url"] == "Dashboard"): ?>
+        <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/apex-charts/apex-charts.css" />
+    <?php endif; ?>
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet"
+        href="<?= ASSETS_URL ?>back/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+
+    <!-- Editor -->
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/quill/typography.css" />
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/highlight/highlight.css" />
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/quill/katex.css" />
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/quill/editor.css" />
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/flatpickr/flatpickr.css" />
+    <!-- Row Group CSS -->
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
+    <!-- Form Validation -->
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/@form-validation/form-validation.css" />
+
+    <!-- Modal -->
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/libs/bs-stepper/bs-stepper.css" />
+
+    <!-- Page CSS -->
+    <?php if (!empty($_REQUEST) && $_REQUEST["url"] == "Dashboard"): ?>
+        <link rel="stylesheet" href="<?= ASSETS_URL ?>back/vendor/css/pages/app-logistics-dashboard.css" />
+    <?php endif; ?>
+
+    <!-- Helpers -->
+    <script src="<?= ASSETS_URL ?>back/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="<?= ASSETS_URL ?>back/vendor/js/template-customizer.js"></script>
+
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+
+    <script src="<?= ASSETS_URL ?>back/js/config.js"></script>
+</head>
+
+<body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
