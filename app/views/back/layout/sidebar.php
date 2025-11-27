@@ -58,38 +58,11 @@
                 <div data-i18n="RIP LPPM">RIP LPPM</div>
             </a>
         </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <li class="menu-item <?= !empty($data['page']) && $data['page'] == 'Renstra' ? 'active' : '' ?>">
+            <a href="<?= BASE_URL ?>/Renstra/backend" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-book"></i>
                 <div data-i18n="Renstra PPKM">Renstra PPKM</div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="app-academy-dashboard.html" class="menu-link">
-                        <div data-i18n="Renstra FKOM">Renstra FKOM</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course.html" class="menu-link">
-                        <div data-i18n="Renstra FEBI">Renstra FEBI</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="Renstra FAPERTA">Renstra FAPERTA</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="Renstra FKIP">Renstra FKIP</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="Renstra FTEK">Renstra FTEK</div>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
