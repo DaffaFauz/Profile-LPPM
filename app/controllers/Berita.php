@@ -9,7 +9,7 @@ class Berita extends Controller
         // View
         $this->view('layout/front/head', ['title' => 'Berita']);
         $this->view('layout/front/navbar', ['page' => 'berita']);
-        $this->view('berita', ['berita' => $berita]);
+        $this->view('berita/berita', ['berita' => $berita]);
         $this->view('layout/front/footer');
     }
 
@@ -71,7 +71,7 @@ class Berita extends Controller
         // View
         $this->view('layout/front/head', ['title' => 'Berita']);
         $this->view('layout/front/navbar', ['page' => 'berita']);
-        $this->view('berita-detail', ['berita' => $berita, 'terbaru' => $terbaru]);
+        $this->view('berita/berita-detail', ['berita' => $berita, 'terbaru' => $terbaru]);
         $this->view('layout/front/footer');
     }
 

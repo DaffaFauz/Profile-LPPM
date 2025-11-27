@@ -14,7 +14,7 @@ class TentangKami extends Controller
         $sejarah = $this->model('SejarahModel')->getData();
         $this->view('layout/front/head', ['title' => 'Sejarah']);
         $this->view('layout/front/navbar', ['page' => 'Tentang Kami']);
-        $this->view('sejarah', ['sejarah' => $sejarah]);
+        $this->view('tentangkami/sejarah', ['sejarah' => $sejarah]);
         $this->view('layout/front/footer');
     }
 
@@ -24,7 +24,7 @@ class TentangKami extends Controller
         $visi_misi = $this->model('VisiMisiModel')->getData();
         $this->view('layout/front/head', ['title' => 'Visi Misi']);
         $this->view('layout/front/navbar', ['page' => 'Tentang Kami']);
-        $this->view('visi-misi', ['visi_misi' => $visi_misi]);
+        $this->view('tentangkami/visi-misi', ['visi_misi' => $visi_misi]);
         $this->view('layout/front/footer');
     }
 }

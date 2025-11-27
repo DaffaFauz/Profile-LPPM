@@ -51,15 +51,14 @@
                                 <!-- Informasi -->
 
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle page-scroll <?= !empty($data['page']) && $data['page'] == 'informasi' ? 'active' : '' ?>"
+                                    <a class="nav-link dropdown-toggle page-scroll <?= !empty($data['page']) && $data['page'] == 'Informasi' ? 'active' : '' ?>"
                                         href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         Informasi
                                     </a>
                                     <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                                         <li class="nav-item">
-                                            <a class="dropdown-item"
-                                                href="https://lppm.masoemuniversity.ac.id/informasi/rip-lppm.html">RIP
+                                            <a class="dropdown-item" target="_blank" href="<?= BASE_URL ?>/RIP">RIP
                                                 LPPM</a>
                                         </li>
 

@@ -1,0 +1,1 @@
+<iframe src="<?= BASE_URL ?>/informasi/rip/<?= $data['dokumen']['dokumen'] ?>" width="100%" height="800"></iframe>

@@ -52,8 +52,8 @@
         <li class="menu-header small">
             <span class="menu-header-text" data-i18n="Informasi">Informasi</span>
         </li>
-        <li class="menu-item">
-            <a href="<?= BASE_URL ?>/Sejarah" class="menu-link">
+        <li class="menu-item <?= !empty($data['page']) && $data['page'] == 'RIP' ? 'active' : '' ?>">
+            <a href="<?= BASE_URL ?>/RIP/backend" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-book"></i>
                 <div data-i18n="RIP LPPM">RIP LPPM</div>
             </a>

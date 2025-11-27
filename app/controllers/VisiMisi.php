@@ -10,7 +10,7 @@ class VisiMisi extends Controller
         $this->view('back/layout/head', ['title' => 'Kelola Visi Misi']);
         $this->view('back/layout/sidebar', ['page' => 'Visi Misi']);
         $this->view('back/layout/navbar');
-        $this->view('back/visi-misi', ['visi_misi' => $visi_misi]);
+        $this->view('back/tentangkami/visi-misi', ['visi_misi' => $visi_misi]);
         $this->view('back/layout/footer');
     }
 

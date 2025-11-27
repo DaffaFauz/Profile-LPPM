@@ -10,7 +10,7 @@ class Sejarah extends Controller
         $this->view('back/layout/head', ['title' => 'Kelola Sejarah']);
         $this->view('back/layout/sidebar', ['page' => 'Sejarah']);
         $this->view('back/layout/navbar');
-        $this->view('back/sejarah', ['sejarah' => $sejarah]);
+        $this->view('back/tentangkami/sejarah', ['sejarah' => $sejarah]);
         $this->view('back/layout/footer');
     }
 
