@@ -1,7 +1,7 @@
 <!-- ========================= Content of Berita ========================== -->
 
 <section class="header my-5">
-    <h4 class="text-center">BERITA</h4>
+    <h4 class="text-center">BERITA <?= isset($data['tag']) && $data['tag'] ? '#' . $data['tag'] : '' ?></h4>
 </section>
 
 <section class="body container mb-5">

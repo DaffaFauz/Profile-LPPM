@@ -20,9 +20,11 @@ class TentangKami extends Controller
 
     public function VisiMisi()
     {
+        // Ambil visi misi dari database
+        $visi_misi = $this->model('VisiMisiModel')->getData();
         $this->view('layout/front/head', ['title' => 'Visi Misi']);
         $this->view('layout/front/navbar', ['page' => 'Tentang Kami']);
-        $this->view('visi-misi');
+        $this->view('visi-misi', ['visi_misi' => $visi_misi]);
         $this->view('layout/front/footer');
     }
 }

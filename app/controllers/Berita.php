@@ -61,4 +61,29 @@ class Berita extends Controller
             redirectWithMsg(BASE_URL . "/Berita/backend", "Data gagal dihapus", "danger");
         }
     }
+
+    public function detail($slug)
+    {
+        // Ambil data berita dari database
+        $berita = $this->model("BeritaModel")->getById($slug);
+        $terbaru = $this->model("BeritaModel")->getLatest(5);
+
+        // View
+        $this->view('layout/front/head', ['title' => 'Berita']);
+        $this->view('layout/front/navbar', ['page' => 'berita']);
+        $this->view('berita-detail', ['berita' => $berita, 'terbaru' => $terbaru]);
+        $this->view('layout/front/footer');
+    }
+
+    public function tag($tag)
+    {
+        // Ambil berita berdasarkan hashtag
+        $berita = $this->model("BeritaModel")->getByHashtag($tag);
+
+        // View
+        $this->view('layout/front/head', ['title' => 'Berita #' . $tag]);
+        $this->view('layout/front/navbar', ['page' => 'berita']);
+        $this->view('berita', ['berita' => $berita, 'tag' => $tag]);
+        $this->view('layout/front/footer');
+    }
 }

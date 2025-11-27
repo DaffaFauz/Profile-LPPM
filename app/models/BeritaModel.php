@@ -18,6 +18,11 @@ class BeritaModel
 
     public function tambah($data, $file)
     {
+        // Hapus tanda # jika ada
+        if (isset($data['hashtag'])) {
+            $data['hashtag'] = str_replace('#', '', $data['hashtag']);
+        }
+
         // Upload file
         $file = $_FILES['gambar'];
         $fileName = $file['name'];
@@ -62,6 +67,11 @@ class BeritaModel
 
     public function edit($data, $file, $id)
     {
+        // Hapus tanda # jika ada
+        if (isset($data['hashtag'])) {
+            $data['hashtag'] = str_replace('#', '', $data['hashtag']);
+        }
+
         // Jika tidak ada file yang diupload
         if (empty($file['name'])) {
             $this->pdo->query("UPDATE {$this->table} SET judul = :judul, body = :body, hashtag = :hashtag, tanggal = :tanggal WHERE id_berita = :id");
@@ -142,5 +152,30 @@ class BeritaModel
         $this->pdo->bind(":id", $id);
         $this->pdo->execute();
         return $this->pdo->rowCount();
+    }
+
+    public function getById($slug)
+    {
+        $this->pdo->query("SELECT * FROM {$this->table} WHERE slug = :slug");
+        $this->pdo->bind(":slug", $slug);
+        $this->pdo->execute();
+        return $this->pdo->single();
+    }
+
+    public function getByHashtag($tag)
+    {
+        $tag = "%" . $tag . "%";
+        $this->pdo->query("SELECT * FROM {$this->table} WHERE hashtag LIKE :tag AND status = 'Publish'");
+        $this->pdo->bind(":tag", $tag);
+        $this->pdo->execute();
+        return $this->pdo->resultSet();
+    }
+
+    public function getLatest($limit = 5)
+    {
+        $this->pdo->query("SELECT * FROM {$this->table} WHERE status = 'Publish' ORDER BY tanggal DESC LIMIT :limit");
+        $this->pdo->bind(":limit", $limit);
+        $this->pdo->execute();
+        return $this->pdo->resultSet();
     }
 }
