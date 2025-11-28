@@ -69,31 +69,14 @@
                                                 Renstra PPKM
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        href="https://lppm.masoemuniversity.ac.id/informasi/renstra/fkom.html">Renstra
-                                                        FKOM</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        href="https://lppm.masoemuniversity.ac.id/informasi/renstra/febi.html">Renstra
-                                                        FEBI</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        href="https://lppm.masoemuniversity.ac.id/informasi/renstra/faperta.html">Renstra
-                                                        FAPERTA</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        href="https://lppm.masoemuniversity.ac.id/informasi/renstra/fkip.html">Renstra
-                                                        FKIP</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        href="https://lppm.masoemuniversity.ac.id/informasi/renstra/ftek.html">Renstra
-                                                        FTEK</a>
-                                                </li>
+                                                <?php foreach ($data['renstra'] as $row): ?>
+                                                    <li class="nav-item">
+                                                        <a class="dropdown-item"
+                                                            href="<?= BASE_URL ?>/Renstra/<?= $row['slug'] ?>"
+                                                            target="_blank">Renstra
+                                                            <?= $row['kode_fakultas'] ?></a>
+                                                    </li>
+                                                <?php endforeach; ?>
                                             </ul>
                                         </li>
 
@@ -105,31 +88,14 @@
                                                 Tema PPKM
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        href="https://lppm.masoemuniversity.ac.id/informasi/tema-ppkm/ROADMAP & TEMA PPkM-FKOM.png"
-                                                        target="_blank">PPKM FKOM</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        href="https://lppm.masoemuniversity.ac.id/informasi/tema-ppkm/ROADMAP & TEMA PPkM-FEBI.png"
-                                                        target="_blank">PPKM FEBI</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        href="https://lppm.masoemuniversity.ac.id/informasi/tema-ppkm/ROADMAP & TEMA PPkM-FAPERTA.png"
-                                                        target="_blank">PPKM FAPERTA</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        href="https://lppm.masoemuniversity.ac.id/informasi/tema-ppkm/ROADMAP & TEMA PPkM-FKIP.png"
-                                                        target="_blank">PPKM FKIP</a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
-                                                        href="https://lppm.masoemuniversity.ac.id/informasi/tema-ppkm/ROADMAP & TEMA PPkM-FTEK.png"
-                                                        target="_blank">PPKM FTEK</a>
-                                                </li>
+                                                <?php foreach ($data['ppkm'] as $row): ?>
+                                                    <li class="nav-item">
+                                                        <a class="dropdown-item"
+                                                            href="<?= BASE_URL ?>/PPKM/<?= $row['slug'] ?>"
+                                                            target="_blank">PPKM
+                                                            <?= $row['kode_fakultas'] ?></a>
+                                                    </li>
+                                                <?php endforeach; ?>
                                             </ul>
                                         </li>
 

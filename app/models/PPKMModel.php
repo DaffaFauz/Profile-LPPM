@@ -1,6 +1,6 @@
 <?php
 
-class RenstraModel
+class PPKMModel
 {
     private $pdo;
     private $table = 'informasi';
@@ -12,13 +12,13 @@ class RenstraModel
 
     public function getData()
     {
-        $this->pdo->query("SELECT * FROM {$this->table} INNER JOIN fakultas ON {$this->table}.id_fakultas = fakultas.id_fakultas WHERE jenis_informasi = 'Renstra'");
+        $this->pdo->query("SELECT * FROM {$this->table} INNER JOIN fakultas ON {$this->table}.id_fakultas = fakultas.id_fakultas WHERE {$this->table}.jenis_informasi = 'PPKM'");
         return $this->pdo->resultSet();
     }
 
     public function getFile($slug)
     {
-        $this->pdo->query("SELECT * FROM {$this->table} WHERE slug = :slug");
+        $this->pdo->query("SELECT * FROM {$this->table} INNER JOIN fakultas ON {$this->table}.id_fakultas = fakultas.id_fakultas WHERE {$this->table}.slug = :slug");
         $this->pdo->bind(':slug', $slug);
         return $this->pdo->single();
     }
@@ -30,21 +30,15 @@ class RenstraModel
         $fileTmpName = $file['tmp_name'];
         $fileSize = $file['size'];
         $fileError = $file['error'];
-        $fileType = $file['type'];
 
         if ($fileSize > 2000000) {
-            redirectWithMsg(BASE_URL . "/Renstra/backend", "Ukuran file terlalu besar", "danger");
-            exit;
-        }
-        $allowedTypes = ['application/pdf'];
-        if (!in_array($fileType, $allowedTypes)) {
-            redirectWithMsg(BASE_URL . "/Renstra/backend", "Format file tidak didukung. Harap upload file PDF", "danger");
+            redirectWithMsg(BASE_URL . "/PPKM/backend", "Ukuran file terlalu besar", "danger");
             exit;
         }
 
         if ($fileError === 0) {
             // Membuat folder jika belum ada
-            $uploadDir = dirname(__DIR__, 2) . '/public/informasi/Renstra';
+            $uploadDir = dirname(__DIR__, 2) . '/public/informasi/PPKM';
             if (!file_exists($uploadDir)) {
                 mkdir($uploadDir, 0777, true);
             }
@@ -52,7 +46,12 @@ class RenstraModel
         }
 
         // Membuat slug
-        $slug = implode('-', explode(' ', $fileName));
+        $info = pathinfo($fileName);
+        $slug = $info['filename'];
+        $slug = preg_replace('/[^a-zA-Z0-9]/', '-', $slug);
+        $slug = preg_replace('/-+/', '-', $slug);
+        $slug = trim($slug, '-');
+        $slug .= '.' . $info['extension'];
 
         $this->pdo->query("UPDATE {$this->table} SET dokumen = :file, slug = :slug  WHERE id_informasi = :id");
         $this->pdo->bind(':file', $fileName);

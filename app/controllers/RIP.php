@@ -20,7 +20,7 @@ class RIP extends Controller
         $this->view('back/layout/head', ['title' => 'RIP LPPM']);
         $this->view('back/layout/sidebar', ['page' => 'RIP']);
         $this->view('back/layout/navbar');
-        $this->view('back/informasi/rip/index', $data);
+        $this->view('back/informasi/rip', $data);
         $this->view('back/layout/footer');
     }
 

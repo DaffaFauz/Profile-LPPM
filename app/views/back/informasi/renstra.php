@@ -32,11 +32,12 @@
                             <td><?= $no++; ?></td>
                             <td><?= $row['nama_fakultas']; ?></td>
                             <td>
-                                <form action="<?= BASE_URL ?>/Renstra" method="post">
-                                    <button type="submit" class="btn btn-info btn-sm" name="id_informasi"
-                                        value="<?= $row['id_informasi'] ?>"><i class="ti tabler-eye me-1"></i>
-                                        Lihat dokumen</button>
-                                </form>
+
+                                <a href="<?= BASE_URL ?>/Renstra/<?= $row['slug'] ?>" target="_blank"
+                                    class="btn btn-info btn-sm" name="id_informasi" value="<?= $row['id_informasi'] ?>"><i
+                                        class="ti tabler-eye me-1"></i>
+                                    Lihat dokumen</a>
+
                             </td>
                             <td>
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
@@ -52,50 +53,23 @@
     <!--/ Complex Headers -->
 </div>
 
-<!-- Modal edit berita -->
-<?php foreach ($data['berita'] as $row): ?>
-    <div class="modal fade" id="ubahBerita<?= $row['id_berita'] ?>" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-simple modal-edit-user">
+<!-- Modal edit renstra -->
+<?php foreach ($data['renstra'] as $row): ?>
+    <div class="modal fade" id="ubahRenstra<?= $row['id_informasi'] ?>" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-simple modal-edit-user">
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="text-center mb-6">
-                        <h4 class="mb-2">Ubah Berita</h4>
+                        <h4 class="mb-2">Upload dokumen</h4>
                     </div>
-                    <form id="ubahBeritaForm<?= $row['id_berita'] ?>" class="row g-6"
-                        action="<?= BASE_URL ?>/Berita/ubah/<?= $row['id_berita'] ?>" method="post"
+                    <form id="ubahRenstraForm<?= $row['id_informasi'] ?>" class="row g-6"
+                        action="<?= BASE_URL ?>/Renstra/ubah/<?= $row['id_informasi'] ?>" method="post"
                         enctype="multipart/form-data">
                         <div class="col-12">
-                            <label class="form-label" for="modalUbahGambar">Upload Gambar</label>
-                            <input type="file" id="modalUbahGambar" name="gambar" class="form-control"
-                                placeholder="#example" value="<?= $row['gambar'] ?>" />
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label class="form-label" for="modalUbahJudul">Judul</label>
-                            <input type="text" id="modalUbahJudul" name="judul" class="form-control" placeholder="Judul"
-                                value="<?= $row['judul'] ?>" />
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label class="form-label" for="modalUbahTanggal">Tanggal</label>
-                            <input type="date" id="modalUbahTanggal" name="tanggal" class="form-control"
-                                placeholder="Tanggal" value="<?= $row['tanggal'] ?>" />
-                        </div>
-                        <!-- Full Editor -->
-                        <div class="col-12">
-                            <label class="form-label" for="modalUbahDeskripsi">Deskripsi
-                                Berita</label>
-                            <div class="card">
-                                <div id="editor-edit-<?= $row['id_berita'] ?>" style="height: 300px;">
-                                    <?= $row['body'] ?>
-                                </div>
-                                <input type="hidden" name="body" id="input-body-edit-<?= $row['id_berita'] ?>">
-                            </div>
-                        </div>
-                        <!-- /Full Editor -->
-                        <div class="col-12">
-                            <label class="form-label" for="modalUbahHashtag">Hashtag</label>
-                            <input type="text" id="modalUbahHashtag" name="hashtag" class="form-control"
-                                placeholder="#example" value="<?= $row['hashtag'] ?>" />
+                            <label class="form-label" for="modalUbahDokumen">Upload Dokumen</label>
+                            <input type="file" id="modalUbahDokumen" name="dokumen" class="form-control"
+                                placeholder="#example" value="<?= $row['dokumen'] ?>" />
                         </div>
                         <div class="col-12 text-end">
                             <button type="submit" class="btn btn-primary me-3">Ubah</button>

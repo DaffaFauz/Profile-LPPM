@@ -64,38 +64,11 @@
                 <div data-i18n="Renstra PPKM">Renstra PPKM</div>
             </a>
         </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <li class="menu-item <?= !empty($data['page']) && $data['page'] == 'PPKM' ? 'active' : '' ?>">
+            <a href="<?= BASE_URL ?>/PPKM/backend" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-book"></i>
                 <div data-i18n="Tema PPKM">Tema PPKM</div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="app-academy-dashboard.html" class="menu-link">
-                        <div data-i18n="PPKM FKOM">PPKM FKOM</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course.html" class="menu-link">
-                        <div data-i18n="PPKM FEBI">PPKM FEBI</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="PPKM FAPERTA">PPKM FAPERTA</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="PPKM FKIP">PPKM FKIP</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="PPKM FTEK">PPKM FTEK</div>
-                    </a>
-                </li>
-            </ul>
         </li>
         <li class="menu-item">
             <a href="<?= BASE_URL ?>/Profil" class="menu-link">
