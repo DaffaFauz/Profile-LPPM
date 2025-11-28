@@ -71,12 +71,13 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="<?= BASE_URL ?>/Profil" class="menu-link">
+            <a href="#" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-book"></i>
                 <div data-i18n="Panduan PPKM">Panduan PPKM</div>
             </a>
         </li>
-        <li class="menu-item">
+        <!-- Jika nanti diperlukan fitur untuk mengelola monev -->
+        <!-- <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon icon-base ti tabler-file-pencil"></i>
                 <div data-i18n="Form Monev PPKM">Form Monev PPKM</div>
@@ -93,7 +94,7 @@
                     </a>
                 </li>
             </ul>
-        </li>
+        </li> -->
         <li class="menu-item">
             <a href="<?= BASE_URL ?>/Profil" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-file-description"></i>
@@ -105,12 +106,12 @@
         <li class="menu-header small">
             <span class="menu-header-text" data-i18n="Publikasi">Publikasi</span>
         </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <li class="menu-item <?= !empty($data['page']) && $data['page'] == 'Publikasi' ? 'active' : '' ?>">
+            <a href="<?= BASE_URL ?>/Publikasi/backend" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-list-search"></i>
-                <div data-i18n="Penelitian">Penelitian</div>
+                <div data-i18n="Publikasi">Publikasi</div>
             </a>
-            <ul class="menu-sub">
+            <!-- <ul class="menu-sub">
                 <li class="menu-item">
                     <a href="app-academy-dashboard.html" class="menu-link">
                         <div data-i18n="Penelitian">Penelitian</div>
@@ -136,73 +137,13 @@
                         <div data-i18n="Renstra FTEK">Renstra FTEK</div>
                     </a>
                 </li>
-            </ul>
+            </ul> -->
         </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon icon-base ti tabler-user-heart"></i>
-                <div data-i18n="Pengabdian Kepada Masyarakat">Pengabdian Kepada Masyarakat</div>
+        <li class="menu-item <?= !empty($data['page']) && $data['page'] == 'Periode' ? 'active' : '' ?>">
+            <a href="<?= BASE_URL ?>/Periode" class="menu-link">
+                <i class="menu-icon icon-base ti tabler-calendar"></i>
+                <div data-i18n="Periode">Periode</div>
             </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="app-academy-dashboard.html" class="menu-link">
-                        <div data-i18n="Penelitian">Penelitian</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course.html" class="menu-link">
-                        <div data-i18n="Renstra FEBI">Renstra FEBI</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="Renstra FAPERTA">Renstra FAPERTA</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="Renstra FKIP">Renstra FKIP</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="Renstra FTEK">Renstra FTEK</div>
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon icon-base ti tabler-certificate"></i>
-                <div data-i18n="Hak Kekayaan Intelektual">Hak Kekayaan Intelektual</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="app-academy-dashboard.html" class="menu-link">
-                        <div data-i18n="Penelitian">Penelitian</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course.html" class="menu-link">
-                        <div data-i18n="Renstra FEBI">Renstra FEBI</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="Renstra FAPERTA">Renstra FAPERTA</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="Renstra FKIP">Renstra FKIP</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="app-academy-course-details.html" class="menu-link">
-                        <div data-i18n="Renstra FTEK">Renstra FTEK</div>
-                    </a>
-                </li>
-            </ul>
         </li>
 
         <!-- Berita -->

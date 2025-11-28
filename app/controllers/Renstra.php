@@ -17,7 +17,7 @@ class Renstra extends Controller
         $this->view('back/layout/sidebar', ['page' => 'Renstra']);
         $this->view('back/layout/head', ['title' => 'Rencana & Strategi']);
         $this->view('back/layout/navbar', ['page' => 'Informasi']);
-        $this->view('back/informasi/renstra', ['renstra' => $renstra]);
+        $this->view('back/renstra', ['renstra' => $renstra]);
         $this->view('back/layout/footer');
     }
 

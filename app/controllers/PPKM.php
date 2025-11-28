@@ -17,7 +17,7 @@ class PPKM extends Controller
         $this->view('back/layout/head', ['title' => 'PPKM']);
         $this->view('back/layout/sidebar', ['page' => 'PPKM']);
         $this->view('back/layout/navbar');
-        $this->view('back/informasi/ppkm', ['ppkm' => $ppkm]);
+        $this->view('back/ppkm', ['ppkm' => $ppkm]);
         $this->view('back/layout/footer');
     }
 

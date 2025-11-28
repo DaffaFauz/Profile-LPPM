@@ -163,7 +163,8 @@
                                 <!-- Publikasi -->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle <?= !empty($data['page']) && $data['page'] == 'publikasi' ? 'active' : '' ?>"
-                                        href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        href="<?= BASE_URL ?>/Publikasi" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
                                         Publikasi
                                     </a>
                                     <ul class="dropdown-menu">
