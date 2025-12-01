@@ -14,10 +14,11 @@ class TentangKami extends Controller
         $renstra = $this->model('RenstraModel')->getData();
         $sejarah = $this->model('SejarahModel')->getData();
         $ppkm = $this->model('PPKMModel')->getData();
+        $publikasi = $this->model("PublikasiModel")->nav();
 
         // View
         $this->view('layout/front/head', ['title' => 'Sejarah']);
-        $this->view('layout/front/navbar', ['page' => 'Tentang Kami', 'renstra' => $renstra, 'ppkm' => $ppkm]);
+        $this->view('layout/front/navbar', ['page' => 'Tentang Kami', 'renstra' => $renstra, 'ppkm' => $ppkm, 'publikasi' => $publikasi, '' => $publikasi]);
         $this->view('tentangkami/sejarah', ['sejarah' => $sejarah]);
         $this->view('layout/front/footer');
     }
@@ -28,10 +29,11 @@ class TentangKami extends Controller
         $visi_misi = $this->model('VisiMisiModel')->getData();
         $renstra = $this->model('RenstraModel')->getData();
         $ppkm = $this->model('PPKMModel')->getData();
+        $publikasi = $this->model("PublikasiModel")->nav();
 
         // View
         $this->view('layout/front/head', ['title' => 'Visi Misi']);
-        $this->view('layout/front/navbar', ['page' => 'Tentang Kami', 'renstra' => $renstra, 'ppkm' => $ppkm]);
+        $this->view('layout/front/navbar', ['page' => 'Tentang Kami', 'renstra' => $renstra, 'ppkm' => $ppkm, 'publikasi' => $publikasi]);
         $this->view('tentangkami/visi-misi', ['visi_misi' => $visi_misi]);
         $this->view('layout/front/footer');
     }

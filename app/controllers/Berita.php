@@ -5,10 +5,11 @@ class Berita extends Controller
     {
         // Ambil berita dari database
         $berita = $this->model("BeritaModel")->getAll();
+        $publikasi = $this->model("PublikasiModel")->nav();
 
         // View
         $this->view('layout/front/head', ['title' => 'Berita']);
-        $this->view('layout/front/navbar', ['page' => 'berita']);
+        $this->view('layout/front/navbar', ['page' => 'berita', 'publikasi' => $publikasi]);
         $this->view('berita/berita', ['berita' => $berita]);
         $this->view('layout/front/footer');
     }
