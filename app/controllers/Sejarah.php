@@ -3,6 +3,7 @@ class Sejarah extends Controller
 {
     public function index()
     {
+        checkLogin();
         // Ambil data sejarah
         $sejarah = $this->model('SejarahModel')->getData();
 
@@ -16,6 +17,7 @@ class Sejarah extends Controller
 
     public function ubah()
     {
+        checkLogin();
         $body = $_POST['body'];
         if ($this->model("SejarahModel")->ubah($body) > 0) {
             redirectWithMsg(BASE_URL . "/Sejarah/backend", "Data berhasil diubah", "success");

@@ -5,9 +5,10 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>
-        <?= htmlspecialchars($data['title']) ?> | LPPM MU
+        <?= !empty($data['page']) && $data['page'] === 'Detail Berita' ? 'Berita - ' . htmlspecialchars($data['title']) : htmlspecialchars($data['title']) . ' | LPPM MU' ?>
     </title>
-    <meta name="title" content="LPPM Universitas Ma'soem - <?= htmlspecialchars($data['title']) ?>">
+    <meta name="title"
+        content="<?= !empty($data['page']) && $data['page'] === 'Detail Berita' ? htmlspecialchars($data['title']) : "LPPM Universitas Ma'soem - " . htmlspecialchars($data['title']) ?>">
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Place favicon.ico in the root directory -->

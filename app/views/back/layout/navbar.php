@@ -66,8 +66,8 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-0">John Doe</h6>
-                                        <small class="text-body-secondary">Admin</small>
+                                        <h6 class="mb-0"><?= $_SESSION['user']['name'] ?></h6>
+                                        <small class="text-body-secondary"><?= $_SESSION['user']['role'] ?></small>
                                     </div>
                                 </div>
                             </a>
@@ -76,20 +76,21 @@
                             <div class="dropdown-divider my-1 mx-n2"></div>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="pages-profile-user.html">
+                            <a class="dropdown-item" href="#">
                                 <i class="icon-base ti tabler-user me-3 icon-md"></i><span class="align-middle">My
                                     Profile</span>
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="pages-account-settings-account.html">
+                            <a class="dropdown-item" href="#">
                                 <i class="icon-base ti tabler-settings me-3 icon-md"></i><span
                                     class="align-middle">Settings</span>
                             </a>
                         </li>
                         <li>
                             <div class="d-grid px-2 pt-2 pb-1">
-                                <a class="btn btn-sm btn-danger d-flex" href="auth-login-cover.html" target="_blank">
+                                <a class="btn btn-sm btn-danger d-flex" href="<?= BASE_URL ?>/Login/logout"
+                                    onclick="return confirm('Anda yakin ingin logout?')">
                                     <small class="align-middle">Logout</small>
                                     <i class="icon-base ti tabler-logout ms-2 icon-14px"></i>
                                 </a>

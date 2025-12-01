@@ -10,9 +10,9 @@ class Login extends Controller
     public function login()
     {
         if ($this->model("LoginModel")->Login($_POST)) {
-            redirectWithMsg(BASE_URL . 'Dashboard', 'Anda berhasil login', 'success');
+            redirectWithMsg(BASE_URL . '/Dashboard', 'Anda berhasil login', 'success');
         } else {
-            redirectWithMsg(BASE_URL . 'Login', 'Username atau password salah', 'danger');
+            redirectWithMsg(BASE_URL . '/Login', 'Username atau password salah', 'danger');
         }
     }
 
@@ -20,6 +20,6 @@ class Login extends Controller
     {
         session_unset();
         session_destroy();
-        redirectWithMsg(BASE_URL . 'login', 'Anda berhasil logout', 'success');
+        redirectWithMsg(BASE_URL . '/Login', 'Anda berhasil logout', 'success');
     }
 }

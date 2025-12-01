@@ -12,6 +12,7 @@ class Renstra extends Controller
 
     public function backend()
     {
+        checkLogin();
         // Ambil data dari database
         $renstra = $this->model('RenstraModel')->getData();
         $this->view('back/layout/sidebar', ['page' => 'Renstra']);
@@ -23,6 +24,7 @@ class Renstra extends Controller
 
     public function ubah($id)
     {
+        checkLogin();
         if ($this->model("RenstraModel")->ubah($id, $_FILES['dokumen']) > 0) {
             redirectWithMsg(BASE_URL . "/Renstra/backend", "Dokumen berhasil disimpan", "success");
         } else {

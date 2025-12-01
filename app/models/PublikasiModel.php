@@ -50,7 +50,7 @@ class PublikasiModel
                     mkdir($uploadDir . '/Penelitian', 0777, true);
                 }
                 $uploadDir .= '/Penelitian';
-            } else if ($data['jenis_publikasi'] == 'Pengabdian Kepada Masyarakat') {
+            } elseif ($data['jenis_publikasi'] == 'Pengabdian Kepada Masyarakat') {
                 if (!file_exists($uploadDir . '/Pengabdian Kepada Masyarakat')) {
                     mkdir($uploadDir . '/Pengabdian Kepada Masyarakat', 0777, true);
                 }
@@ -113,7 +113,7 @@ class PublikasiModel
                         mkdir($uploadDir . '/Penelitian', 0777, true);
                     }
                     $uploadDir .= '/Penelitian';
-                } else if ($data['jenis_publikasi'] == 'Pengabdian Kepada Masyarakat') {
+                } elseif ($data['jenis_publikasi'] == 'Pengabdian Kepada Masyarakat') {
                     if (!file_exists($uploadDir . '/Pengabdian Kepada Masyarakat')) {
                         mkdir($uploadDir . '/Pengabdian Kepada Masyarakat', 0777, true);
                     }

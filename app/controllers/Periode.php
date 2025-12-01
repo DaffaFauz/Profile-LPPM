@@ -3,6 +3,7 @@ class Periode extends Controller
 {
     public function index()
     {
+        checkLogin();
         // Ambil data tahun
         $periode = $this->model('periodeModel')->getAll();
 
@@ -16,6 +17,7 @@ class Periode extends Controller
 
     public function tambah()
     {
+        checkLogin();
         $periode = $_POST['periode'];
         if ($this->model("periodeModel")->tambah($periode) > 0) {
             redirectWithMsg(BASE_URL . "/Periode/backend", "Data berhasil ditambahkan", "success");
@@ -26,6 +28,7 @@ class Periode extends Controller
 
     public function ubah($id)
     {
+        checkLogin();
         $periode = $_POST['periode'];
         if ($this->model("periodeModel")->ubah($id, $periode) > 0) {
             redirectWithMsg(BASE_URL . "/Periode/backend", "Data berhasil diubah", "success");

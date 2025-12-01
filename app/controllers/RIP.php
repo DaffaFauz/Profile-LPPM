@@ -13,6 +13,7 @@ class RIP extends Controller
 
     public function backend()
     {
+        checkLogin();
         // Ambil dokumen dari database
         $data['dokumen'] = $this->model('RIPModel')->getFile();
 
@@ -26,6 +27,7 @@ class RIP extends Controller
 
     public function ubah()
     {
+        checkLogin();
         if ($this->model("RIPModel")->update($_FILES['file']) > 0) {
             redirectWithMsg(BASE_URL . '/RIP/backend', 'Data berhasil diubah', 'success');
         } else {

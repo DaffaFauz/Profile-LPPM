@@ -10,6 +10,7 @@ class PPKM extends Controller
 
     public function backend()
     {
+        checkLogin();
         // Ambil data PPKM
         $ppkm = $this->model('PPKMModel')->getData();
 

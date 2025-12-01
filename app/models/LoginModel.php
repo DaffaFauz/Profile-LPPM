@@ -14,7 +14,7 @@ class LoginModel
     {
         // Cek keberadaan & kesesuaian username di database
         $this->pdo->query("SELECT * FROM {$this->table} WHERE username = :username");
-        $this->pdo->bind(":username", $data['username']);
+        $this->pdo->bind(":username", $data['email-username']);
         $user = $this->pdo->single();
         $_SESSION['user'] = $user;
 

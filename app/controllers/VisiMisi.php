@@ -3,6 +3,7 @@ class VisiMisi extends Controller
 {
     public function index()
     {
+        checkLogin();
         // Ambil data sejarah
         $visi_misi = $this->model('VisiMisiModel')->getData();
 
@@ -16,6 +17,7 @@ class VisiMisi extends Controller
 
     public function ubah()
     {
+        checkLogin();
         $body = $_POST['body'];
         if ($this->model("VisiMisiModel")->ubah($body) > 0) {
             redirectWithMsg(BASE_URL . "/VisiMisi/backend", "Data berhasil diubah", "success");

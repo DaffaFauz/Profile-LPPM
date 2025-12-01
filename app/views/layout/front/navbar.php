@@ -233,7 +233,7 @@
                                 <!-- Berita -->
 
                                 <li class="nav-item">
-                                    <a class="nav-link page-scroll <?= !empty($data['page']) && $data['page'] == 'berita' ? 'active' : '' ?>"
+                                    <a class="nav-link page-scroll <?= !empty($data['page']) && $data['page'] == 'Berita' || !empty($data['page']) && $data['page'] == 'Detail Berita' ? 'active' : '' ?>"
                                         href="<?= BASE_URL ?>/Berita"> Berita </a>
                                 </li>
 
@@ -290,7 +290,7 @@
                                 <!--Contact-->
 
                                 <li class="nav-item">
-                                    <a class="page-scroll" href="<?= BASE_URL ?>/#contact">Contact</a>
+                                    <a class="page-scroll" href="<?= BASE_URL ?>/#contact">Kontak</a>
                                 </li>
                             </ul>
                         </div>

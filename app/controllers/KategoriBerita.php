@@ -4,6 +4,7 @@ class KategoriBerita extends Controller
 {
     public function index()
     {
+        checkLogin();
         // Ambil data kategori berita
         $kategori = $this->model('KategoriBeritaModel')->getAll();
 
@@ -17,6 +18,7 @@ class KategoriBerita extends Controller
 
     public function tambah()
     {
+        checkLogin();
         if ($this->model("KategoriBeritaModel")->tambah($_POST) > 0) {
             redirectWithMsg(BASE_URL . "/KategoriBerita", "Kategori berita berhasil ditambahkan.", "success");
         } else {
@@ -26,6 +28,7 @@ class KategoriBerita extends Controller
 
     public function ubah($id)
     {
+        checkLogin();
         if ($this->model("KategoriBeritaModel")->ubah($_POST, $id) > 0) {
             redirectWithMsg(BASE_URL . "/KategoriBerita", "Kategori berita berhasil diubah.", "success");
         } else {
@@ -35,6 +38,7 @@ class KategoriBerita extends Controller
 
     public function hapus($id)
     {
+        checkLogin();
         if ($this->model("KategoriBeritaModel")->hapus($id) > 0) {
             redirectWithMsg(BASE_URL . "/KategoriBerita", "Kategori berita berhasil dihapus.", "success");
         } else {

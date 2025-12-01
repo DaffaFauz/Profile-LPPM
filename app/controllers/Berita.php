@@ -9,13 +9,14 @@ class Berita extends Controller
 
         // View
         $this->view('layout/front/head', ['title' => 'Berita']);
-        $this->view('layout/front/navbar', ['page' => 'berita', 'publikasi' => $publikasi]);
+        $this->view('layout/front/navbar', ['page' => 'Berita', 'publikasi' => $publikasi]);
         $this->view('berita/berita', ['berita' => $berita]);
         $this->view('layout/front/footer');
     }
 
     public function backend()
     {
+        checkLogin();
         // Ambil data berita dari database
         $berita = $this->model("BeritaModel")->getAll();
 
@@ -29,6 +30,7 @@ class Berita extends Controller
 
     public function tambah()
     {
+        checkLogin();
         if ($this->model("BeritaModel")->tambah($_POST, $_FILES) > 0) {
             redirectWithMsg(BASE_URL . "/Berita/backend", "Data berhasil ditambahkan", "success");
         } else {
@@ -38,6 +40,7 @@ class Berita extends Controller
 
     public function ubah($id)
     {
+        checkLogin();
         if ($this->model("BeritaModel")->edit($_POST, $_FILES, $id) > 0) {
             redirectWithMsg(BASE_URL . "/Berita/backend", "Data berhasil diubah", "success");
         } else {
@@ -47,6 +50,7 @@ class Berita extends Controller
 
     public function status($id)
     {
+        checkLogin();
         if ($this->model("BeritaModel")->status($id) > 0) {
             redirectWithMsg(BASE_URL . "/Berita/backend", "Data berhasil diubah", "success");
         } else {
@@ -56,6 +60,7 @@ class Berita extends Controller
 
     public function hapus($id)
     {
+        checkLogin();
         if ($this->model("BeritaModel")->hapus($id) > 0) {
             redirectWithMsg(BASE_URL . "/Berita/backend", "Data berhasil dihapus", "success");
         } else {
@@ -70,8 +75,8 @@ class Berita extends Controller
         $terbaru = $this->model("BeritaModel")->getLatest(5);
 
         // View
-        $this->view('layout/front/head', ['title' => 'Berita']);
-        $this->view('layout/front/navbar', ['page' => 'berita']);
+        $this->view('layout/front/head', ['title' => $berita['judul'], 'page' => 'Detail Berita']);
+        $this->view('layout/front/navbar', ['page' => 'Detail Berita']);
         $this->view('berita/berita-detail', ['berita' => $berita, 'terbaru' => $terbaru]);
         $this->view('layout/front/footer');
     }

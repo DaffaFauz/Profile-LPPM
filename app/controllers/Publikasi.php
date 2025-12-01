@@ -11,6 +11,7 @@ class Publikasi extends Controller
 
     public function backend()
     {
+        checkLogin();
         // Ambil data prodi, tahun untuk filter dan tambah publikasi
         $prodi = $this->model('ProdiModel')->getAll();
         $periode = $this->model('PeriodeModel')->getAll();
@@ -26,6 +27,7 @@ class Publikasi extends Controller
 
     public function tambah()
     {
+        checkLogin();
         if ($this->model("PublikasiModel")->tambah($_POST, $_FILES) > 0) {
             redirectWithMsg(BASE_URL . "/Publikasi/backend", "Publikasi berhasil ditambahkan", "success");
         } else {
@@ -35,6 +37,7 @@ class Publikasi extends Controller
 
     public function ubah($id)
     {
+        checkLogin();
         if ($this->model("PublikasiModel")->ubah($id, $_POST, $_FILES) > 0) {
             redirectWithMsg(BASE_URL . "/Publikasi/backend", "Publikasi berhasil diubah", "success");
         } else {
@@ -44,6 +47,7 @@ class Publikasi extends Controller
 
     public function hapus($id)
     {
+        checkLogin();
         if ($this->model("PublikasiModel")->hapus($id) > 0) {
             redirectWithMsg(BASE_URL . "/Publikasi/backend", "Publikasi berhasil dihapus", "success");
         } else {

@@ -91,7 +91,7 @@
                         <label class="form-label" for="modalTambahPublikasi">Jenis Publikasi</label>
                         <select name="jenis_publikasi" class="form-select" id="">
                             <option value="Penelitian">Penelitian</option>
-                            <option value="Pengabdian kepada Masyarakat">Pengabdian kepada Masyarakat</option>
+                            <option value="Pengabdian Kepada Masyarakat">Pengabdian kepada Masyarakat</option>
                             <option value="Hak Kekayaan Intelektual">Hak Kekayaan Intelektual</option>
                         </select>
                     </div>
@@ -149,7 +149,7 @@
                             <select name="jenis_publikasi" class="form-select" id="">
                                 <option value="Penelitian" <?= $row['jenis_publikasi'] == 'Penelitian' ? 'selected' : '' ?>>
                                     Penelitian</option>
-                                <option value="Pengabdian kepada Masyarakat" <?= $row['jenis_publikasi'] == 'Pengabdian kepada Masyarakat' ? 'selected' : '' ?>>
+                                <option value="Pengabdian Kepada Masyarakat" <?= $row['jenis_publikasi'] == 'Pengabdian Kepada Masyarakat' ? 'selected' : '' ?>>
                                     Pengabdian kepada Masyarakat</option>
                                 <option value="Hak Kekayaan Intelektual" <?= $row['jenis_publikasi'] == 'Hak Kekayaan Intelektual' ? 'selected' : '' ?>>
                                     Hak Kekayaan Intelektual</option>
