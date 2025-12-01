@@ -31,7 +31,7 @@ class BeritaModel
         $fileError = $file['error'];
         $fileType = $file['type'];
 
-        if ($fileSize > 1000000) {
+        if ($fileSize > 2000000) {
             redirectWithMsg(BASE_URL . "/Berita/backend", "Ukuran file terlalu besar", "danger");
             exit;
         }
@@ -50,17 +50,15 @@ class BeritaModel
             }
             move_uploaded_file($fileTmpName, $uploadDir . '/' . $fileNameNew);
         }
-
-        // Membuat slug dari judul untuk link
-        $slug = implode("-", explode(" ", $data['judul']));
-        $this->pdo->query("INSERT INTO {$this->table} (gambar, judul, slug, body, hashtag, tanggal, status) VALUES (:gambar, :judul, :slug, :body, :hashtag, :tanggal, :status)");
+        $this->pdo->query("INSERT INTO {$this->table} (gambar, judul, slug, body, hashtag, tanggal, status, deskripsi) VALUES (:gambar, :judul, :slug, :body, :hashtag, :tanggal, :status, :deskripsi)");
         $this->pdo->bind(":gambar", $fileNameNew);
         $this->pdo->bind(":judul", $data['judul']);
-        $this->pdo->bind(":slug", $slug);
+        $this->pdo->bind(":slug", $data['slug']);
         $this->pdo->bind(":body", $data['body']);
         $this->pdo->bind(":hashtag", $data['hashtag']);
         $this->pdo->bind(":tanggal", $data['tanggal']);
         $this->pdo->bind(":status", 'Pending');
+        $this->pdo->bind(":deskripsi", $data['meta_description']);
         $this->pdo->execute();
         return $this->pdo->rowCount();
     }
@@ -73,26 +71,28 @@ class BeritaModel
         }
 
         // Jika tidak ada file yang diupload
-        if (empty($file['name'])) {
-            $this->pdo->query("UPDATE {$this->table} SET judul = :judul, body = :body, hashtag = :hashtag, tanggal = :tanggal WHERE id_berita = :id");
+        if (empty($file['gambar']['name'])) {
+            $this->pdo->query("UPDATE {$this->table} SET judul = :judul, slug = :slug, body = :body, hashtag = :hashtag, tanggal = :tanggal, deskripsi = :deskripsi WHERE id_berita = :id");
             $this->pdo->bind(":judul", $data['judul']);
+            $this->pdo->bind(":slug", $data['slug']);
             $this->pdo->bind(":body", $data['body']);
             $this->pdo->bind(":hashtag", $data['hashtag']);
             $this->pdo->bind(":tanggal", $data['tanggal']);
+            $this->pdo->bind(":deskripsi", $data['meta_description']);
             $this->pdo->bind(":id", $id);
             $this->pdo->execute();
             return $this->pdo->rowCount();
         } else {
 
             // Upload file
-            $file = $_FILES['gambar'];
-            $fileName = $file['name'];
-            $fileTmpName = $file['tmp_name'];
-            $fileSize = $file['size'];
-            $fileError = $file['error'];
-            $fileType = $file['type'];
+            $fileData = $file['gambar'];
+            $fileName = $fileData['name'];
+            $fileTmpName = $fileData['tmp_name'];
+            $fileSize = $fileData['size'];
+            $fileError = $fileData['error'];
+            $fileType = $fileData['type'];
 
-            if ($fileSize > 1000000) {
+            if ($fileSize > 2000000) {
                 redirectWithMsg(BASE_URL . "/Berita/backend", "Ukuran file terlalu besar", "danger");
                 exit;
             }
@@ -112,15 +112,14 @@ class BeritaModel
                 move_uploaded_file($fileTmpName, $uploadDir . '/' . $fileNameNew);
             }
 
-            // bikin slug
-            $slug = implode("-", explode(" ", $data['judul']));
-            $this->pdo->query("UPDATE {$this->table} SET gambar = :gambar, judul = :judul, slug = :slug, body = :body, hashtag = :hashtag, tanggal = :tanggal WHERE id_berita = :id");
+            $this->pdo->query("UPDATE {$this->table} SET gambar = :gambar, judul = :judul, slug = :slug, body = :body, hashtag = :hashtag, tanggal = :tanggal, deskripsi = :deskripsi WHERE id_berita = :id");
             $this->pdo->bind(":gambar", $fileNameNew);
             $this->pdo->bind(":judul", $data['judul']);
-            $this->pdo->bind(":slug", $slug);
+            $this->pdo->bind(":slug", $data['slug']);
             $this->pdo->bind(":body", $data['body']);
             $this->pdo->bind(":hashtag", $data['hashtag']);
             $this->pdo->bind(":tanggal", $data['tanggal']);
+            $this->pdo->bind(":deskripsi", $data['meta_description']);
             $this->pdo->bind(":id", $id);
             $this->pdo->execute();
             return $this->pdo->rowCount();

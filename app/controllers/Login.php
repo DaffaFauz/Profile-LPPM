@@ -10,7 +10,7 @@ class Login extends Controller
     public function login()
     {
         if ($this->model("LoginModel")->Login($_POST)) {
-            redirectWithMsg(BASE_URL . '/Dashboard', 'Anda berhasil login', 'success');
+            header('location:' . BASE_URL . '/Dashboard');
         } else {
             redirectWithMsg(BASE_URL . '/Login', 'Username atau password salah', 'danger');
         }

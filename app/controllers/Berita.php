@@ -75,7 +75,7 @@ class Berita extends Controller
         $terbaru = $this->model("BeritaModel")->getLatest(5);
 
         // View
-        $this->view('layout/front/head', ['title' => $berita['judul'], 'page' => 'Detail Berita']);
+        $this->view('layout/front/head', ['title' => $berita['judul'], 'page' => 'Detail Berita', 'berita' => $berita]);
         $this->view('layout/front/navbar', ['page' => 'Detail Berita']);
         $this->view('berita/berita-detail', ['berita' => $berita, 'terbaru' => $terbaru]);
         $this->view('layout/front/footer');

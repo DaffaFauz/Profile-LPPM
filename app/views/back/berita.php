@@ -73,7 +73,7 @@
 </div>
 <!-- Modal tambah berita -->
 <div class="modal fade" id="tambahBerita" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-simple modal-edit-user">
+    <div class="modal-dialog modal-xl modal-simple modal-edit-user">
         <div class="modal-content">
             <div class="modal-body">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -93,6 +93,15 @@
                             placeholder="Judul" />
                     </div>
                     <div class="col-12 col-md-6">
+                        <label class="form-label" for="modalTambahUrl">URL</label>
+                        <input type="text" id="modalTambahUrl" name="slug" class="form-control" placeholder="URL" />
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label class="form-label" for="modalTambahMetaDescription">Meta Description</label>
+                        <input type="text" id="modalTambahMetaDescription" name="meta_description" class="form-control"
+                            placeholder="Meta Description" />
+                    </div>
+                    <div class="col-12 col-md-6">
                         <label class="form-label" for="modalTambahTanggal">Tanggal</label>
                         <input type="date" id="modalTambahTanggal" name="tanggal" class="form-control"
                             placeholder="Tanggal" />
@@ -102,7 +111,7 @@
                         <label class="form-label" for="modalTambahDeskripsi">Deskripsi
                             Berita</label>
                         <div class="card">
-                            <div id="editor-tambah" style="height: 300px;">
+                            <div id="editor-tambah" style="min-height: 500px;">
                             </div>
                             <input type="hidden" name="body" id="input-body-tambah">
                         </div>
@@ -128,7 +137,7 @@
 <!-- Modal edit berita -->
 <?php foreach ($data['berita'] as $row): ?>
     <div class="modal fade" id="ubahBerita<?= $row['id_berita'] ?>" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-simple modal-edit-user">
+        <div class="modal-dialog modal-xl modal-simple modal-edit-user">
             <div class="modal-content">
                 <div class="modal-body">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -149,6 +158,16 @@
                                 value="<?= $row['judul'] ?>" />
                         </div>
                         <div class="col-12 col-md-6">
+                            <label class="form-label" for="modalTambahUrl">URL</label>
+                            <input type="text" id="modalTambahUrl" name="slug" class="form-control" placeholder="URL"
+                                value="<?= $row['slug'] ?>" />
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label class="form-label" for="modalTambahMetaDescription">Meta Description</label>
+                            <input type="text" id="modalTambahMetaDescription" name="meta_description" class="form-control"
+                                placeholder="Meta Description" value="<?= $row['deskripsi'] ?>" />
+                        </div>
+                        <div class="col-12 col-md-6">
                             <label class="form-label" for="modalUbahTanggal">Tanggal</label>
                             <input type="date" id="modalUbahTanggal" name="tanggal" class="form-control"
                                 placeholder="Tanggal" value="<?= $row['tanggal'] ?>" />
@@ -158,7 +177,7 @@
                             <label class="form-label" for="modalUbahDeskripsi">Deskripsi
                                 Berita</label>
                             <div class="card">
-                                <div id="editor-edit-<?= $row['id_berita'] ?>" style="height: 300px;">
+                                <div id="editor-edit-<?= $row['id_berita'] ?>" style="min-height: 500px;">
                                     <?= $row['body'] ?>
                                 </div>
                                 <input type="hidden" name="body" id="input-body-edit-<?= $row['id_berita'] ?>">
